@@ -1,3 +1,21 @@
 body {
-    color: red;
+    color: black;
+}
+header {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left {
+    background-color: blue;
+}
+.right {
+    background-color: red;
+}
+.tab1 {
+    background-color: purple;
+}
+.tab2 {
+    background-color: yellow;
 }
