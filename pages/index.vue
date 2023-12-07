@@ -1,7 +1,12 @@
+<script setup lang="ts">
+let trees = Tree()
+let cookies = Cookies()
+
+</script>
+
 <template>
     <div>
-        <h1>
-            Ceci est l'index
-        </h1>
+        <Cookies/>
+        <Trees/>
     </div>
 </template>
