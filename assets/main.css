@@ -1,17 +1,35 @@
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     color: black;
 }
 header {
+    margin: 0;
+    padding: 0;
     background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10vh;
 }
+.game {
+    display: flex;
+    height: 90vh;
+}
+
+.left, .right {
+    width: 50%;
+    box-sizing: border-box;
+}
+
 .left {
-    background-color: blue;
+    background-color: #f0f0f0; /* Couleur de fond pour la démo */
 }
+
 .right {
-    background-color: red;
+    background-color: #ccc; /* Couleur de fond pour la démo */
+    position: relative;
 }
 .tab1 {
     background-color: purple;
@@ -19,3 +37,28 @@ header {
 .tab2 {
     background-color: yellow;
 }
+
+.tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tabContent {
+    display: none;
+}
+
+.tabContent.active {
+    display: block;
+}
+
+#questions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Couleur de fond pour la div des questions */
+    padding: 20px;
+    z-index: 9999; /* Pour être au-dessus de tout le reste */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre pour la délimitation */
+  }

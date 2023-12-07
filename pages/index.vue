@@ -1,3 +1,33 @@
+<script setup>
+    // Ajout d'un gestionnaire d'événement pour le bouton Tab 1
+    function showTab1(){
+        var tab1 = document.querySelector('.tab1');
+        var tab2 = document.querySelector('.tab2');
+        tab1.classList.add('active');
+        tab2.classList.remove('active');
+    };
+
+    // Ajout d'un gestionnaire d'événement pour le bouton Tab 2
+    function showTab2(){
+        var tab1 = document.querySelector('.tab1');
+        var tab2 = document.querySelector('.tab2');
+        tab2.classList.add('active');
+        tab1.classList.remove('active');
+    }
+
+    function toggleQuestions() {
+        const questions = document.getElementById('questions');
+        const toggleButton = document.getElementById('toggleButton');
+        if (questions.style.display === 'none') {
+            questions.style.display = 'block';
+            toggleButton.textContent = 'Cacher les questions';
+        } else {
+            questions.style.display = 'none';
+            toggleButton.textContent = 'Afficher les questions';
+        }
+    };
+</script>
+
 <template>
     <div>
         <header>
@@ -23,9 +53,14 @@
                 <div class="planet">
                     <button id="planet"></button>
                 </div>
+                <button id="toggleButton" @click="toggleQuestions()">Afficher/Cacher les questions</button>
             </div>
             <div class="right">
-                <div class="tab1">
+                <div class="tabs">
+                    <button id="tab1Button" @click="showTab1()">Afficher Tab 1</button>
+                    <button id="tab2Button" @click="showTab2()">Afficher Tab 2</button>
+                </div>
+                <div class="tab1 tabContent active">
                     <div class="choices">
                         <ul id="countChoice">
                             <li>MAX</li>
@@ -41,7 +76,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="tab2">
+                <div class="tab2 tabContent">
                     <ul>
                         <li>
                             <h3>Cliché 1</h3>
@@ -58,7 +93,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="questions">
+            <div id="questions" style="display : none">
                 <h3>Titre question</h3>
                 <ul>
                     <li><div id="answer1">reponse 1</div></li>
@@ -69,4 +104,7 @@
             </div>
         </div>
     </div>
+
+    
 </template>
+
