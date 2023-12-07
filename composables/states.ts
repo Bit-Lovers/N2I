@@ -1,8 +1,8 @@
 export type Object = {amount : number, price : number}
 
-export const Tree = () => {
-    let value = {amount : 0, price : 1}
-    return useState<Object>("tree", () => value)
+export const Upgrade = (id : String, initialAmount : number, value_price : number) => {
+    let object = {amount : initialAmount, price : value_price}
+    return useState<Object>(id, () => object)
 }
 
 export const Cookies = () => {

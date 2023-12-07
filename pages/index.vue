@@ -1,5 +1,6 @@
 <script setup lang="ts">
-let trees = Tree()
+let station1 = Upgrade("1", 0, 2)
+let station2 = Upgrade("2", 0, 5)
 let cookies = Cookies()
 
 </script>
@@ -7,6 +8,6 @@ let cookies = Cookies()
 <template>
     <div>
         <Cookies/>
-        <Trees/>
+        <Upgrade/>
     </div>
 </template>
