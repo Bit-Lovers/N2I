@@ -31,5 +31,4 @@ export const checkState = (amount : number, state : State, list : number[], file
             image.src = filename.name
         }
     }
-    console.log(filename.name)
 }

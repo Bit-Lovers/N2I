@@ -10,7 +10,7 @@ let filename = {name : "/obstacle1.png"}
 
 <template>
     <div>
-        <div class="Button noselect" @click="addValue(cookies, 1); addValue(totalCookies, 1); checkState(cookies.amount, state, steps, filename)">
+        <div class="Button noselect" @click="addValue(cookies, 1); addValue(totalCookies, 1); checkState(totalCookies.amount, state, steps, filename)">
             <h1>Cookies : {{ cookies.amount }}</h1>
         </div> 
         <div class="Button noselect">
