@@ -13,3 +13,19 @@ export const Cookies = () => {
 export const addValue = (object : Object, value : number) => {
     object.amount += value
 }
+
+export function periodicallyAddValue(object: Object, value: number, interval: number) {
+    setInterval(() => {
+        addValue(object, value);
+        console.log('Amount:', object.amount);
+    }, interval);
+}
+
+
+
+
+
+
+
+
+
