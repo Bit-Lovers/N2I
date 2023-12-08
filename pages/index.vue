@@ -57,7 +57,7 @@
         <div class="game">
             <div class="left">
                 <div id="money">
-                    <p id="PointsCount">0 Ecopoints</p>
+                    <p id="PointsCount"><Cookies/></p>
                     <p id="PointsPerSecond">0 pts/s</p>
                 </div>
                 <div class="planet"></div>
@@ -80,14 +80,7 @@
                         </ul>
                     </div>
                     <div class="upgrade">
-                        <ul id="upgrade">
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">1$</div></button></li>
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">10$</div></button></li>
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">100$</div></button></li>
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">1000$</div></button></li>
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">10000$</div></button></li>
-                            <li><button class="upgrade-button"><div class="upgrade-image"></div>Arbre<div class="price">100000$</div></button></li>
-                        </ul>
+                        <Upgrade/>
                     </div>
                 </div>
                 <div class="tab2 tabContent">
