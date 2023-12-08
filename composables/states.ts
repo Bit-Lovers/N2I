@@ -1,7 +1,6 @@
 export type Object = {amount : number, price : number}
 export type State = {currentState : number}
-export type File = {name : String}
-export type State = {currentState : number}
+export type Total = {amount : number}
 export type File = {name : String}
 
 export const Upgrade = (id : String, initialAmount : number, value_price : number) => {
@@ -10,24 +9,17 @@ export const Upgrade = (id : String, initialAmount : number, value_price : numbe
 }
 
 export const Cookies = (id : String) => {
-    let value = {amount : 0, name :id}
-    return useState<Object>(id, () => value)
+    let value = {amount : 0}
+    return useState<Total>(id, () => value)
 }
 
 export const addValue = (object : Object, value : number) => {
     object.amount += value
 }
 
-export function periodicallyAddValue(object: Object, value: number, interval: number) {
-    setInterval(() => {
-        addValue(object, value);
-        console.log('Amount:', object.amount);
-    }, interval);
-}
-
 export const getSource = (state : number) => {
-    let str = "/obstacle"+state+".png"
-    console.log(str)
+    let str = "/Earth"+state+".png"
+    //console.log(str)
     return str
 }
 
