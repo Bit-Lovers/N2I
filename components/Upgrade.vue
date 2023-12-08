@@ -2,14 +2,17 @@
 let station1 = Upgrade("1", 0, 2)
 let station2 = Upgrade("2", 0, 5)
 let cookies = Cookies()
+function checkadd(cookieamount:Object, station:Object) {
+    if (cookieamount.amount >= station.price) {addValue(station, 1); addValue(cookieamount, -station.price)}
+}
 </script>
 
 <template>
     <div>
-        <div class="Button noselect" @click="if (cookies.amount >= station1.price) {addValue(station1, 1); addValue(cookies, -station1.price)}">
+        <div class="Button noselect" @click="checkadd(cookies, station1)">
             <h1>Arbres : {{ station1.amount }}</h1>
         </div> 
-        <div class="Button noselect" @click="if (cookies.amount >= station2.price) {addValue(station2, 1); addValue(cookies, -station2.price)}">
+        <div class="Button noselect" @click="checkadd(cookies, station2)">
             <h1>Vélo : {{ station2.amount }}</h1>
         </div> 
     </div>
