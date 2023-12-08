@@ -10,6 +10,7 @@ import 'fs';
 import 'path';
 import 'node:fs';
 import 'node:url';
+import 'ipx';
 
 function createContext$1(opts = {}) {
   let currentInstance;
@@ -579,7 +580,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-e48ac898.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-5dd9f0c0.mjs').then((m) => m.default || m)
   },
   {
     name: "informations",

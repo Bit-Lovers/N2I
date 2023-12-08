@@ -1,10 +1,10 @@
 const client_manifest = {
-  "_vue.f36acd1f.abe84d49.js": {
+  "_vue.f36acd1f.86cb65d3.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.abe84d49.js",
+    "file": "vue.f36acd1f.86cb65d3.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -29,10 +29,10 @@ const client_manifest = {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-404.ef202ffe.js",
+    "file": "error-404.21bb86e2.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.abe84d49.js"
+      "_vue.f36acd1f.86cb65d3.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue"
@@ -56,9 +56,9 @@ const client_manifest = {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-500.52d60a9d.js",
+    "file": "error-500.9efb3f07.js",
     "imports": [
-      "_vue.f36acd1f.abe84d49.js",
+      "_vue.f36acd1f.86cb65d3.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -79,7 +79,7 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.845c21a8.js",
+    "file": "entry.00651ed7.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
@@ -89,7 +89,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "documentation.a2445a21.js",
+    "file": "documentation.bdf1bcd1.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -101,7 +101,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.4a938f55.js",
+    "file": "index.9afe634a.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -113,7 +113,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "informations.d58f5b84.js",
+    "file": "informations.d176ab26.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -125,7 +125,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "options.08d51773.js",
+    "file": "options.530befad.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],

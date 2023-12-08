@@ -7,6 +7,7 @@ import 'fs';
 import 'path';
 import 'node:fs';
 import 'node:url';
+import 'ipx';
 import 'devalue';
 import 'vue/server-renderer';
 import '@unhead/ssr';
