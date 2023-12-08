@@ -6,12 +6,6 @@ import { renderSSRHead } from '@unhead/ssr';
 import { version, unref } from 'vue';
 import { createServerHead as createServerHead$1 } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
-import 'node:http';
-import 'node:https';
-import 'fs';
-import 'path';
-import 'node:fs';
-import 'node:url';
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -381,5 +375,10 @@ function splitPayload(ssrContext) {
   };
 }
 
-export { renderer as default };
+const renderer$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: renderer
+});
+
+export { buildAssetsURL as b, renderer$1 as r };
 //# sourceMappingURL=renderer.mjs.map

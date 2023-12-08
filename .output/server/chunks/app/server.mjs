@@ -1,5 +1,5 @@
-import { hasInjectionContext, getCurrentInstance, version, unref, inject, defineComponent, provide, shallowReactive, h, ref, Suspense, nextTick, Transition, useSSRContext, createApp, effectScope, reactive, defineAsyncComponent, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, isReadonly, isRef, isShallow, isReactive, toRaw, mergeProps } from 'vue';
-import { d as useRuntimeConfig$1, $ as $fetch, w as withQuery, l as hasProtocol, p as parseURL, m as isScriptProtocol, j as joinURL, h as createError$1, n as defu, o as sanitizeStatusCode, q as createHooks } from '../nitro/node-server.mjs';
+import { hasInjectionContext, getCurrentInstance, version, unref, inject, defineComponent, provide, shallowReactive, h, ref, Suspense, nextTick, Transition, computed, resolveComponent, useSSRContext, createApp, effectScope, reactive, defineAsyncComponent, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, isReadonly, isRef, isShallow, isReactive, toRaw, withCtx, createTextVNode, mergeProps } from 'vue';
+import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defu, m as hasProtocol, j as joinURL, p as parseURL, n as parseQuery, o as createHooks, w as withTrailingSlash, q as withoutTrailingSlash, r as withQuery, t as isScriptProtocol, v as sanitizeStatusCode } from '../nitro/node-server.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
@@ -566,12 +566,36 @@ const createError = (err) => {
 };
 const _routes = [
   {
+    name: "documentation",
+    path: "/documentation",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/documentation-cbf83d7b.mjs').then((m) => m.default || m)
+  },
+  {
     name: "index",
     path: "/",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-dd831c2e.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-e48ac898.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "informations",
+    path: "/informations",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/informations-fcc897b3.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "options",
+    path: "/options",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/options-5250af80.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -868,6 +892,244 @@ const plugins = [
   revive_payload_server_eJ33V7gbc6,
   components_plugin_KR1HBZs4kY
 ];
+const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
+const DEFAULT_EXTERNAL_REL_ATTRIBUTE = "noopener noreferrer";
+/*! @__NO_SIDE_EFFECTS__ */
+// @__NO_SIDE_EFFECTS__
+function defineNuxtLink(options) {
+  const componentName = options.componentName || "NuxtLink";
+  const resolveTrailingSlashBehavior = (to, resolve) => {
+    if (!to || options.trailingSlash !== "append" && options.trailingSlash !== "remove") {
+      return to;
+    }
+    const normalizeTrailingSlash = options.trailingSlash === "append" ? withTrailingSlash : withoutTrailingSlash;
+    if (typeof to === "string") {
+      return normalizeTrailingSlash(to, true);
+    }
+    const path = "path" in to ? to.path : resolve(to).path;
+    return {
+      ...to,
+      name: void 0,
+      // named routes would otherwise always override trailing slash behavior
+      path: normalizeTrailingSlash(path, true)
+    };
+  };
+  return defineComponent({
+    name: componentName,
+    props: {
+      // Routing
+      to: {
+        type: [String, Object],
+        default: void 0,
+        required: false
+      },
+      href: {
+        type: [String, Object],
+        default: void 0,
+        required: false
+      },
+      // Attributes
+      target: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      rel: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      noRel: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Prefetching
+      prefetch: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      noPrefetch: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Styling
+      activeClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      exactActiveClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      prefetchedClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      // Vue Router's `<RouterLink>` additional props
+      replace: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      ariaCurrentValue: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      // Edge cases handling
+      external: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Slot API
+      custom: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      }
+    },
+    setup(props, { slots }) {
+      const router = useRouter();
+      const config = /* @__PURE__ */ useRuntimeConfig();
+      const to = computed(() => {
+        const path = props.to || props.href || "";
+        return resolveTrailingSlashBehavior(path, router.resolve);
+      });
+      const isProtocolURL = computed(() => typeof to.value === "string" && hasProtocol(to.value, { acceptRelative: true }));
+      const isExternal = computed(() => {
+        if (props.external) {
+          return true;
+        }
+        if (props.target && props.target !== "_self") {
+          return true;
+        }
+        if (typeof to.value === "object") {
+          return false;
+        }
+        return to.value === "" || isProtocolURL.value;
+      });
+      const prefetched = ref(false);
+      const el = void 0;
+      const elRef = void 0;
+      return () => {
+        var _a, _b;
+        if (!isExternal.value) {
+          const routerLinkProps = {
+            ref: elRef,
+            to: to.value,
+            activeClass: props.activeClass || options.activeClass,
+            exactActiveClass: props.exactActiveClass || options.exactActiveClass,
+            replace: props.replace,
+            ariaCurrentValue: props.ariaCurrentValue,
+            custom: props.custom
+          };
+          if (!props.custom) {
+            if (prefetched.value) {
+              routerLinkProps.class = props.prefetchedClass || options.prefetchedClass;
+            }
+            routerLinkProps.rel = props.rel;
+          }
+          return h(
+            resolveComponent("RouterLink"),
+            routerLinkProps,
+            slots.default
+          );
+        }
+        const href = typeof to.value === "object" ? ((_a = router.resolve(to.value)) == null ? void 0 : _a.href) ?? null : to.value && !props.external && !isProtocolURL.value ? resolveTrailingSlashBehavior(joinURL(config.app.baseURL, to.value), router.resolve) : to.value || null;
+        const target = props.target || null;
+        const rel = props.noRel ? null : firstNonUndefined(props.rel, options.externalRelAttribute, href ? DEFAULT_EXTERNAL_REL_ATTRIBUTE : "") || null;
+        const navigate = () => navigateTo(href, { replace: props.replace });
+        if (props.custom) {
+          if (!slots.default) {
+            return null;
+          }
+          return slots.default({
+            href,
+            navigate,
+            get route() {
+              if (!href) {
+                return void 0;
+              }
+              const url = parseURL(href);
+              return {
+                path: url.pathname,
+                fullPath: url.pathname,
+                get query() {
+                  return parseQuery(url.search);
+                },
+                hash: url.hash,
+                // stub properties for compat with vue-router
+                params: {},
+                name: void 0,
+                matched: [],
+                redirectedFrom: void 0,
+                meta: {},
+                href
+              };
+            },
+            rel,
+            target,
+            isExternal: isExternal.value,
+            isActive: false,
+            isExactActive: false
+          });
+        }
+        return h("a", { ref: el, href, rel, target }, (_b = slots.default) == null ? void 0 : _b.call(slots));
+      };
+    }
+  });
+}
+const __nuxt_component_0 = /* @__PURE__ */ defineNuxtLink(nuxtLinkDefaults);
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const _sfc_main$4 = {
+  name: "MaterialSymbolsSettings"
+};
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<svg${ssrRenderAttrs(mergeProps({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    viewBox: "0 0 24 24"
+  }, _attrs))}><path fill="currentColor" d="m9.25 22l-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.338v-.675q0-.163.025-.338L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.674q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2h-5.5Zm2.8-6.5q1.45 0 2.475-1.025T15.55 12q0-1.45-1.025-2.475T12.05 8.5q-1.475 0-2.488 1.025T8.55 12q0 1.45 1.013 2.475T12.05 15.5Z"></path></svg>`);
+}
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Icons/Options.vue");
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+};
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$2]]);
+const _sfc_main$3 = {
+  name: "MdiInformationSlabBox"
+};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<svg${ssrRenderAttrs(mergeProps({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    viewBox: "0 0 24 24"
+  }, _attrs))}><path fill="currentColor" d="M5 3h14a2 2 0 0 1 2 2v14c0 .53-.21 1.04-.59 1.41c-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-1.11.89-2 2-2m6 6h2V7h-2v2m3 8v-2h-1v-4h-3v2h1v2h-1v2h4Z"></path></svg>`);
+}
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Icons/Informations.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$1]]);
 const interpolatePath = (route, match) => {
   return match.path.replace(/(:\w+)\([^)]+\)/g, "$1").replace(/(:\w+)[?+*]/g, "$1").replace(/:\w+/g, (r) => {
     var _a;
@@ -914,7 +1176,7 @@ const RouteProvider = defineComponent({
     };
   }
 });
-const __nuxt_component_0 = defineComponent({
+const __nuxt_component_3 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -1005,17 +1267,63 @@ function _mergeTransitionProps(routeProps) {
   }));
   return defu(..._props);
 }
-const _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
-};
 const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtPage = __nuxt_component_0;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
+  const _component_NuxtLink = __nuxt_component_0;
+  const _component_IconsOptions = __nuxt_component_1;
+  const _component_IconsInformations = __nuxt_component_2;
+  const _component_NuxtPage = __nuxt_component_3;
+  _push(`<div${ssrRenderAttrs(_attrs)}><header><div id="links">`);
+  _push(ssrRenderComponent(_component_NuxtLink, { to: "/options" }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_IconsOptions, null, null, _parent2, _scopeId));
+      } else {
+        return [
+          createVNode(_component_IconsOptions)
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(ssrRenderComponent(_component_NuxtLink, { to: "/informations" }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_IconsInformations, null, null, _parent2, _scopeId));
+      } else {
+        return [
+          createVNode(_component_IconsInformations)
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div>`);
+  _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`EcoClicker`);
+      } else {
+        return [
+          createTextVNode("EcoClicker")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(ssrRenderComponent(_component_NuxtLink, { to: "/documentation" }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`Documentation`);
+      } else {
+        return [
+          createTextVNode("Documentation")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</header>`);
   _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
   _push(`</div>`);
 }
@@ -1047,7 +1355,7 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./_nuxt/error-404-979db9c1.mjs').then((r) => r.default || r));
+    const _Error404 = defineAsyncComponent(() => import('./_nuxt/error-404-259ba697.mjs').then((r) => r.default || r));
     const _Error = defineAsyncComponent(() => import('./_nuxt/error-500-55daa1c6.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
@@ -1128,5 +1436,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useRuntimeConfig as a, navigateTo as b, createError as c, useNuxtApp as d, entry$1 as default, injectHead as i, nuxtLinkDefaults as n, resolveUnrefHeadInput as r, useRouter as u };
+export { _export_sfc as _, __nuxt_component_0 as a, createError as c, entry$1 as default, injectHead as i, resolveUnrefHeadInput as r, useNuxtApp as u };
 //# sourceMappingURL=server.mjs.map
