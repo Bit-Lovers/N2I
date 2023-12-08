@@ -1,8 +1,11 @@
 <script setup lang="ts">
 let station1 = Upgrade("1", 0, 2)
 let station2 = Upgrade("2", 0, 5)
-let cookies = Cookies()
-
+let cookies = Cookies("current")
+let totalCookies = Cookies("total")
+let steps = [0, 10, 20, 30]
+let state = {currentState : 1}
+let filename = {name : "/obstacle1.png"}
     // Ajout d'un gestionnaire d'événement pour le bouton Tab 1
     function showTab1(){
         var tab1 = document.querySelector('.tab1');
@@ -122,5 +125,6 @@ let cookies = Cookies()
         <div class="cliche" id="cliche5"></div>
         <div class="cliche" id="cliche6"></div>
     </div>
+    <img id="planet" src="/obstacle1.png" alt="There was a problem">
 </template>
 
