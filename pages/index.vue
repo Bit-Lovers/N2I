@@ -325,13 +325,22 @@ let filename = {name : "/obstacle1.png"}
                     </ul>
                 </div>
             </div>
-            <div id="questions" style="display : none">
-                <h3>Titre question</h3>
+            <div class="questions" id="questions1" style="display : none" @click=changeBackgroundColor1()>
+                <h3>1. Le changement climatique n'est qu'un cycle naturel de la Terre</h3>
+                <ul>
+                    <li><div id="answer11"><b>a)</b> Il y a eu beaucoup de changement climatique par le passé, le changement climatique constaté actuellement est naturel</div></li>
+                    <li><div id="answer12"><b>b)</b> La température de l’atmosphère terrestre a beaucoup évolué sur longue une échelle de temps, mais les activités de l’homme sont responsable d’un changement climatique beaucoup plus rapide que les précédents</div></li>
+                    <li><div id="answer13"><b>c)</b> Les changements climatiques naturels n’existent pas, ce sont les activités humaines qui en sont responsable</div></li>
+                    <li><div id="answer14" style="display : none" >Il y a eu des changement climatique par le passé, qu’on est capable de retracer grâce aux carottes de glace réalisé par les scientifiques (http://www2.cnrs.fr/sites/communique/fichier/fiche_epica_last.pdf) mais le changement climatique d’aujourd’hui est </div></li>
+                </ul>
+            </div>
+            <div class="questions" id="questions2" style="display : none" @click=changeBackgroundColor2()>
+                <h3>2. La France émet seulement 1% du CO2 mondial, c'est à la Chine et aux États-Unis de réduire leurs émissions</h3>
                 <ul>
                     <li><div id="answer21"><b>a)</b>Ce chiffre est vrai mais masque la réelle responsabilité de la France dans le changement climatique</div></li>
                     <li><div id="answer22"><b>b)</b>Ce chiffre est faux et relève d’une erreur d’un seul rapport scientifique</div></li>
                     <li><div id="answer23"><b>c)</b>C’est Vrai</div></li>
-                    <li><div id="answer24" style="display : none">Le Haut Conseil du climat explique qu’il faut privilégier les chiffre donné t éq co2/h/an car ils exprime de manière plus juste la responsabilité dans le changement climatique des pays. Tout le monde doit contribuer à la réduction de GES 
+                    <li><div id="answer24" style="display : none" >Le Haut Conseil du climat explique qu’il faut privilégier les chiffre donné t éq co2/h/an car ils exprime de manière plus juste la responsabilité dans le changement climatique des pays. Tout le monde doit contribuer à la réduction de GES 
       HCC: https://www.hautconseilclimat.fr/wp-content/uploads/2020/10/hcc_rapport_empreinte-carbone.pdf#%5B%7B%22num%22%3A52%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22FitR%22%7D%2C-421%2C-1%2C1017%2C843%5D</div></li>
                 </ul>
             </div>
@@ -351,7 +360,7 @@ Donc pour parler de changement climatique il faut considérer un plus grand éch
                     <li><div id="answer41"><b>a)</b> Les nouvelle technologies permettent d’exploiter très facilement le pétrole de schiste présent en très grande quantité autour du globe</div></li>
                     <li><div id="answer42"><b>b)</b> Les lois du marché mondiale va naturellement faire augmenter le prix du pétrole et faire donc baisser les consommations</div></li>
                     <li><div id="answer43"><b>c)</b>  Produire davantage de pétrole n’est pas une solution</div></li>
-                    <li><div id="answer44" style="display : none">La combustion des énergie fossiles représentent 75 % des émissions de CO2, sachant que les émissions mondiale de gaz à effet de serre doivent être réduite de 43 % d’après le Giec	https://www.ouest-france.fr/environnement/rechauffement-climatique/le-giec-a-publie-le-resume-de-ses-six-derniers-rapports-voici-ce-quil-faut-en-retenir-730e4174-c5c8-11ed-bd88-a48dbce3e894
+                    <li><div id="answer44" style="display : none">La combustion des énergie fossiles représentent 75 % des émissions de CO2, sachant que les émissions mondiale de gaz à effet de serre doivent être réduite de 43 % d’après le Giec    https://www.ouest-france.fr/environnement/rechauffement-climatique/le-giec-a-publie-le-resume-de-ses-six-derniers-rapports-voici-ce-quil-faut-en-retenir-730e4174-c5c8-11ed-bd88-a48dbce3e894
 Il serait donc contre productif de tenter de produire davantage de pétrole au lieu d’essayer de réguler la consommation 
 A cause de la dépendance en pétrole de l’économie : il n’y pas de lien entre le prix du pétrole et son volume, on ne peut pas prédire le prix du pétrole en fonction de sa disponibilité. https://jancovici.com/publications-et-co/articles-de-presse/le-petrole-est-il-elastique/</div></li>
                 </ul>
