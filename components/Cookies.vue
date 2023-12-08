@@ -13,7 +13,7 @@ let filename = {name : "/Earth1.png"}
 
 <template>
     <div>
-        <div class="Button noselect" @click="addValue(cookies, 1); addValue(totalCookies, 1)">
+        <div class="Button noselect" @click="addValue(cookies, 1); addValue(totalCookies, 1 )">
             <h1>Cookies : {{ cookies.amount }}</h1>
         </div> 
     </div>

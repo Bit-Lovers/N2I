@@ -62,7 +62,7 @@ ul{
     display: block;
 }
 
-#questions {
+#questions1 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -102,7 +102,7 @@ ul{
     position: absolute;
     top: 55vh;
     left: 45vh;
-    transition: transform 15s ease-in-out;
+    transition: transform 5s ease-in-out;
 }
 
 .upgrade-button{
