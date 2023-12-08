@@ -276,6 +276,11 @@
         answer4.style.display = "block"
     }
 
+    function hide2(){
+        const answer = document.getElementById('questions2')
+        answer.style.display = none;
+    }
+
 </script>
 
 <template>
@@ -324,7 +329,7 @@
                     <li><div id="answer11"><b>a)</b> Il y a eu beaucoup de changement climatique par le passé, le changement climatique constaté actuellement est naturel</div></li>
                     <li><div id="answer12"><b>b)</b> La température de l’atmosphère terrestre a beaucoup évolué sur longue une échelle de temps, mais les activités de l’homme sont responsable d’un changement climatique beaucoup plus rapide que les précédents</div></li>
                     <li><div id="answer13"><b>c)</b> Les changements climatiques naturels n’existent pas, ce sont les activités humaines qui en sont responsable</div></li>
-                    <li><div id="answer14" style="display : none">Il y a eu des changement climatique par le passé, qu’on est capable de retracer grâce aux carottes de glace réalisé par les scientifiques (http://www2.cnrs.fr/sites/communique/fichier/fiche_epica_last.pdf) mais le changement climatique d’aujourd’hui est </div></li>
+                    <li><div id="answer14" style="display : none" >Il y a eu des changement climatique par le passé, qu’on est capable de retracer grâce aux carottes de glace réalisé par les scientifiques (http://www2.cnrs.fr/sites/communique/fichier/fiche_epica_last.pdf) mais le changement climatique d’aujourd’hui est </div></li>
                 </ul>
             </div>
             <div class="questions" id="questions2" style="display : none" @click=changeBackgroundColor2()>
@@ -333,7 +338,7 @@
                     <li><div id="answer21"><b>a)</b>Ce chiffre est vrai mais masque la réelle responsabilité de la France dans le changement climatique</div></li>
                     <li><div id="answer22"><b>b)</b>Ce chiffre est faux et relève d’une erreur d’un seul rapport scientifique</div></li>
                     <li><div id="answer23"><b>c)</b>C’est Vrai</div></li>
-                    <li><div id="answer24" style="display : none">Le Haut Conseil du climat explique qu’il faut privilégier les chiffre donné t éq co2/h/an car ils exprime de manière plus juste la responsabilité dans le changement climatique des pays. Tout le monde doit contribuer à la réduction de GES 
+                    <li><div id="answer24" style="display : none" >Le Haut Conseil du climat explique qu’il faut privilégier les chiffre donné t éq co2/h/an car ils exprime de manière plus juste la responsabilité dans le changement climatique des pays. Tout le monde doit contribuer à la réduction de GES 
       HCC: https://www.hautconseilclimat.fr/wp-content/uploads/2020/10/hcc_rapport_empreinte-carbone.pdf#%5B%7B%22num%22%3A52%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22FitR%22%7D%2C-421%2C-1%2C1017%2C843%5D</div></li>
                 </ul>
             </div>
