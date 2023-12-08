@@ -5,11 +5,15 @@ export const Upgrade = (id : String, initialAmount : number, value_price : numbe
     return useState<Object>(id, () => object)
 }
 
-export const Cookies = () => {
-    let value = {amount : 0}
-    return useState<Object>("cookie", () => value)
+export const Cookies = (id : String) => {
+    let value = {amount : 0, name : id}
+    return useState<Object>(id, () => value)
 }
 
 export const addValue = (object : Object, value : number) => {
     object.amount += value
+}
+
+export const getSource = (state : number) => {
+    return "/assets/obstacle"+state+".png"
 }
