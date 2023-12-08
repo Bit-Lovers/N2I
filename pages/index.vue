@@ -22,20 +22,72 @@ let filename = {name : "/obstacle1.png"}
         tab1.classList.remove('active');
     }
 
-    function toggleQuestions() {
-        const questions = document.getElementById('questions');
-        const toggleButton = document.getElementById('toggleButton');
-        if (questions.style.display === 'none') {
-            questions.style.display = 'block';
-            toggleButton.textContent = 'Cacher les questions';
+    function toggleQuestions1() {
+        const questions = document.getElementById('questions1');
+        const toggleButton = document.getElementById('cliche1');
+        if (questions1.style.display === 'none') {
+            questions1.style.display = 'block';
         } else {
-            questions.style.display = 'none';
-            toggleButton.textContent = 'Afficher les questions';
+            questions1.style.display = 'none';
+        }
+    };
+    function toggleQuestions2() {
+        const questions = document.getElementById('questions2');
+        const toggleButton = document.getElementById('cliche2');
+        if (questions2.style.display === 'none') {
+            questions2.style.display = 'block';
+        } else {
+            questions2.style.display = 'none';
+        }
+    };
+    function toggleQuestions3() {
+        const questions = document.getElementById('questions3');
+        const toggleButton = document.getElementById('cliche3');
+        if (questions3.style.display === 'none') {
+            questions3.style.display = 'block';
+        } else {
+            questions3.style.display = 'none';
+        }
+    };
+    function toggleQuestions4() {
+        const questions = document.getElementById('questions4');
+        const toggleButton = document.getElementById('cliche4');
+        if (questions4.style.display === 'none') {
+            questions4.style.display = 'block';
+        } else {
+            questions4.style.display = 'none';
+        }
+    };
+    function toggleQuestions5() {
+        const questions = document.getElementById('questions5');
+        const toggleButton = document.getElementById('cliche5');
+        if (questions5.style.display === 'none') {
+            questions5.style.display = 'block';
+        } else {
+            questions5.style.display = 'none';
+        }
+    };
+    function toggleQuestions6() {
+        const questions = document.getElementById('questions6');
+        const toggleButton = document.getElementById('cliche6');
+        if (questions6.style.display === 'none') {
+            questions6.style.display = 'block';
+        } else {
+            questions6.style.display = 'none';
+        }
+    };
+    function toggleQuestions7() {
+        const questions = document.getElementById('questions7');
+        const toggleButton = document.getElementById('cliche7');
+        if (questions7.style.display === 'none') {
+            questions7.style.display = 'block';
+        } else {
+            questions7.style.display = 'none';
         }
     };
 
     function deplacerDiv() {
-        const cliche1 = document.getElementById('cliche1');
+        const cliche = document.getElementById("cliche1");
         // Générer une direction aléatoire (angle en radians)
         const angle = Math.random() * Math.PI * 2;
         // Définir la vélocité (vitesse)
@@ -45,11 +97,11 @@ let filename = {name : "/obstacle1.png"}
         const velocityY = Math.sin(angle) * velocity;
         // Fonction pour mettre à jour la position de la div à intervalles réguliers
         function updatePosition() {
-            const rect = cliche1.getBoundingClientRect();
+            const rect = cliche.getBoundingClientRect();
             const windowWidth = window.innerWidth;
             const windowHeight = window.innerHeight;
             // Déplacer la div en utilisant une transformation translate
-            cliche1.style.transform = `translate(${velocityX}px, ${velocityY}px)`;
+            cliche.style.transform = `translate(${velocityX}px, ${velocityY}px)`;
         }
         const intervalId = setInterval(updatePosition, 1000 / 60);
         setTimeout(() => {
@@ -67,7 +119,7 @@ let filename = {name : "/obstacle1.png"}
                     <p id="PointsCount"><Cookies/></p>
                     <p id="PointsPerSecond">0 pts/s</p>
                 </div>
-                <div class="planet"></div>
+                <div id="planets"><img id="planet" src="/Earth1.png"></div>
                 <button id="toggleButton" @click="toggleQuestions()">Afficher/Cacher les questions</button>
                 <button id="toggleButton" @click="deplacerDiv()">Go</button>
             </div>
@@ -77,15 +129,7 @@ let filename = {name : "/obstacle1.png"}
                     <button id="tab2Button" @click="showTab2()">Afficher Tab 2</button>
                 </div>
                 <div class="tab1 tabContent active">
-                    <div class="choices">
-                        <ul id="countChoice">
-                            <li><button>MAX</button></li>
-                            <li><button>x1</button></li>
-                            <li><button>x10</button></li>
-                            <li><button>x100</button></li>
-                            <li><button>x1000</button></li>
-                        </ul>
-                    </div>
+                    <Choices/>
                     <div class="upgrade">
                         <Upgrade/>
                     </div>
@@ -107,23 +151,78 @@ let filename = {name : "/obstacle1.png"}
                     </ul>
                 </div>
             </div>
-            <div id="questions" style="display : none">
+            <div id="questions1" style="display : none">
                 <h3>Titre question</h3>
                 <ul>
-                    <li><div id="answer1">reponse 1</div></li>
-                    <li><div id="answer2">reponse 2</div></li>
-                    <li><div id="answer3">reponse 3</div></li>
-                    <li><div id="answer4">reponse 4</div></li>
+                    <li><div id="answer11">reponse 1</div></li>
+                    <li><div id="answer12">reponse 2</div></li>
+                    <li><div id="answer13">reponse 3</div></li>
+                    <li><div id="answer14">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions2" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer21">reponse 1</div></li>
+                    <li><div id="answer22">reponse 2</div></li>
+                    <li><div id="answer23">reponse 3</div></li>
+                    <li><div id="answer24">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions3" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer31">reponse 1</div></li>
+                    <li><div id="answer32">reponse 2</div></li>
+                    <li><div id="answer33">reponse 3</div></li>
+                    <li><div id="answer34">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions4" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer41">reponse 1</div></li>
+                    <li><div id="answer42">reponse 2</div></li>
+                    <li><div id="answer43">reponse 3</div></li>
+                    <li><div id="answer44">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions5" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer51">reponse 1</div></li>
+                    <li><div id="answer52">reponse 2</div></li>
+                    <li><div id="answer53">reponse 3</div></li>
+                    <li><div id="answer54">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions6" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer61">reponse 1</div></li>
+                    <li><div id="answer62">reponse 2</div></li>
+                    <li><div id="answer63">reponse 3</div></li>
+                    <li><div id="answer64">reponse 4</div></li>
+                </ul>
+            </div>
+            <div id="questions7" style="display : none">
+                <h3>Titre question</h3>
+                <ul>
+                    <li><div id="answer71">reponse 1</div></li>
+                    <li><div id="answer72">reponse 2</div></li>
+                    <li><div id="answer73">reponse 3</div></li>
+                    <li><div id="answer74">reponse 4</div></li>
                 </ul>
             </div>
             
         </div>
-        <div class="cliche" id="cliche1"></div>
-        <div class="cliche" id="cliche2"></div>
-        <div class="cliche" id="cliche3"></div>
-        <div class="cliche" id="cliche4"></div>
-        <div class="cliche" id="cliche5"></div>
-        <div class="cliche" id="cliche6"></div>
+        <div class="cliche" id="cliche1" @click="toggleQuestions1()"></div>
+        <div class="cliche" id="cliche2" @click="toggleQuestions2()"></div>
+        <div class="cliche" id="cliche3" @click="toggleQuestions3()"></div>
+        <div class="cliche" id="cliche4" @click="toggleQuestions4()"></div>
+        <div class="cliche" id="cliche5" @click="toggleQuestions5()"></div>
+        <div class="cliche" id="cliche6" @click="toggleQuestions6()"></div>
+        <div class="cliche" id="cliche7" @click="toggleQuestions7()"></div>
     </div>
     <img id="planet" src="/obstacle1.png" alt="There was a problem">
 </template>

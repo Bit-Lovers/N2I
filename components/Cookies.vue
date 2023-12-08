@@ -6,9 +6,9 @@ let station4 = Upgrade("4", 0, 20)
 let station5 = Upgrade("5", 0, 50)
 let cookies = Cookies("current")
 let totalCookies = Cookies("total")
-let steps = [0, 10, 20, 30]
+let steps = [0, 10, 200, 3000, 40000]
 let state = {currentState : 1}
-let filename = {name : "/obstacle1.png"}
+let filename = {name : "/Earth1.png"}
 </script>
 
 <template>
@@ -21,3 +21,5 @@ let filename = {name : "/obstacle1.png"}
         </div>
     </div>
 </template>
+
+

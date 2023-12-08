@@ -1,6 +1,8 @@
 export type Object = {amount : number, price : number}
 export type State = {currentState : number}
 export type File = {name : String}
+export type State = {currentState : number}
+export type File = {name : String}
 
 export const Upgrade = (id : String, initialAmount : number, value_price : number) => {
     let object = {amount : initialAmount, price : value_price}

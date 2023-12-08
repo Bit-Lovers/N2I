@@ -62,7 +62,7 @@ ul{
     display: block;
 }
 
-#questions {
+#questions1 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -73,13 +73,16 @@ ul{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre pour la délimitation */
 }
 
-.planet{
+#planets{
     height: 70%;
     width: 70%;
-    background: url('planetesaine.png');
     background-size: cover;
     animation: rotateBackground 30s linear infinite;
     pointer-events: none;
+}
+#planet{
+    height: 100%;
+    width: auto;
 }
 
 @keyframes rotateBackground {
@@ -99,7 +102,7 @@ ul{
     position: absolute;
     top: 55vh;
     left: 45vh;
-    transition: transform 15s ease-in-out;
+    transition: transform 5s ease-in-out;
 }
 
 .upgrade-button{
@@ -134,4 +137,17 @@ ul{
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
+}
+
+.upgrade_icon{
+    width: 80px;
+    height: 80px;
+}
+
+.Button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 20px;
 }
