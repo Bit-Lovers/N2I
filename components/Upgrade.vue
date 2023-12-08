@@ -6,7 +6,11 @@ let station2 = Upgrade("2", 0, 5)
 let station3 = Upgrade("3", 0, 10)
 let station4 = Upgrade("4", 0, 20)
 let station5 = Upgrade("5", 0, 50)
-let cookies = Cookies()
+let cookies = Cookies("current")
+let totalCookies = Cookies("total")
+let steps = [0, 10, 20, 30]
+let state = {currentState : 1}
+let filename = {name : "/obstacle1.png"}
 let ptsPerSec = 0;
 
 function checkadd(cookieamount:Object, station:Object) {
