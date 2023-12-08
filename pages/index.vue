@@ -60,7 +60,7 @@
                     <p id="PointsCount"><Cookies/></p>
                     <p id="PointsPerSecond">0 pts/s</p>
                 </div>
-                <div class="planet"></div>
+                <div id="planets"><img id="planet" src="/Earth1.png"></div>
                 <button id="toggleButton" @click="toggleQuestions()">Afficher/Cacher les questions</button>
                 <button id="toggleButton" @click="deplacerDiv()">Go</button>
             </div>
@@ -70,15 +70,7 @@
                     <button id="tab2Button" @click="showTab2()">Afficher Tab 2</button>
                 </div>
                 <div class="tab1 tabContent active">
-                    <div class="choices">
-                        <ul id="countChoice">
-                            <li><button>MAX</button></li>
-                            <li><button>x1</button></li>
-                            <li><button>x10</button></li>
-                            <li><button>x100</button></li>
-                            <li><button>x1000</button></li>
-                        </ul>
-                    </div>
+                    <Choices/>
                     <div class="upgrade">
                         <Upgrade/>
                     </div>
