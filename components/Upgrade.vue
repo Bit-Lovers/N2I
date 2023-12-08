@@ -24,20 +24,21 @@ function periodicallyAddValue(object: Object, value: number) {
 }
 
 function updatePtsPerSec(amount1 : number, amount2 : number, amount3 : number, amount4 : number, amount5 : number) {
-    console.log(amount1 + 2*amount2 + 10*amount3 + 50*amount4 + 100*amount5);
+    //console.log(amount1 + 2*amount2 + 10*amount3 + 50*amount4 + 100*amount5);
     return (amount1 + 2*amount2 + 10*amount3 + 50*amount4 + 100*amount5);
 }
 
-function checkState(amount : number, state : State, list : number[], filename : File) {
+function checkState(value : number, state : State, list : number[], filename : File) {
+    console.log(value)
     for (let i = 0; i < list.length; i++){
-        if (amount >= list[i]){
+        if (value >= list[i]){
             state.currentState = i+1
             filename.name = "/Earth"+state.currentState+".png"
             var image = document.getElementById("planet")
             image.src = filename.name
         }
     }
-    console.log(filename.name)
+    //console.log(filename.name)
 }
 
 function buyUpgrade(interval : Interval, object : Object, value: number){

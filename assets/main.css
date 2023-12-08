@@ -62,7 +62,7 @@ ul{
     display: block;
 }
 
-#questions1 {
+.questions {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -95,7 +95,6 @@ ul{
 }
 
 .cliche {
-    background-color: red;
     width: 50px;
     height: 50px;
     margin: 3px;
@@ -150,4 +149,41 @@ ul{
     justify-content: space-between;
     margin-left: 10px;
     margin-right: 20px;
+}
+
+#cliche1{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event1.png");
+    background-size: cover;
+}
+#cliche2{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event5.png");
+    background-size: cover;
+}
+#cliche3{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event4.png");
+    background-size: cover;
+}
+#cliche4{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event3.png");
+    background-size: cover;
+}
+#cliche5{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event6.png");
+    background-size: cover;
+}
+#cliche6{
+    width: 50px;
+    height: 50px;
+    background-image: url("/event7.png");
+    background-size: cover;
 }
